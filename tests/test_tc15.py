@@ -5,4 +5,4 @@ def test_tc15_sql_injection_does_not_bypass_login(driver, login_url):
     page = LoginPage(driver).open(login_url)
     page.login("' OR '1'='1", "' OR '1'='1")
     assert driver.current_url == login_url
-    assert page.error_text()
+    assert page.form.error_text()

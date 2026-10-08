@@ -5,8 +5,8 @@ def test_tc02_valid_login_with_enter(driver, login_url, credentials):
     from pages.login_page import LoginPage
     page = LoginPage(driver).open(login_url)
     user, password = credentials
-    driver.find_element(*page.USERNAME).send_keys(user)
-    field = driver.find_element(*page.PASSWORD)
+    driver.find_element(*page.form.USERNAME).send_keys(user)
+    field = driver.find_element(*page.form.PASSWORD)
     field.send_keys(password)
     old_url = driver.current_url
     field.send_keys(Keys.ENTER)
