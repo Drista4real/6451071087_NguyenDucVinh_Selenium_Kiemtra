@@ -20,7 +20,8 @@ Cần cài Chrome. Selenium điều khiển trình duyệt; pytest chạy testca
 - `pages/login_page.py`: kết hợp các vùng của trang đăng nhập.
 - `pages/components/login_form.py`: locator và thao tác trong form.
 - `pages/components/login_help.py`: các liên kết trợ giúp.
-- `tests/test_tc*.py`: 19 testcase.
+- `pages/recover_password_page.py`: locator form lấy lại mật khẩu và CAPTCHA.
+- `tests/test_tc*.py`: 20 testcase.
 
 TC14 được bỏ qua mặc định vì gửi sai mật khẩu 5 lần. Chỉ chạy riêng khi dùng tài khoản kiểm thử được phép:
 
