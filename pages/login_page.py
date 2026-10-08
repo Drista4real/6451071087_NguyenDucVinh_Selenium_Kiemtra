@@ -6,8 +6,11 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     USERNAME = (By.NAME, "username")
     PASSWORD = (By.NAME, "userpwd")
-    SUBMIT = (By.CSS_SELECTOR, "input.submit__login")
+    SUBMIT = (By.CSS_SELECTOR, "form[action='/Login'] input.submit_login[type='submit']")
     REMEMBER = (By.ID, "persistent")
+    REMEMBER_LABEL = (By.CSS_SELECTOR, "label.check[for='persistent']")
+    GOOGLE_LOGIN = (By.CSS_SELECTOR, "a[href^='https://accounts.google.com/o/oauth2/auth']")
+    FORGOT_PASSWORD = (By.CSS_SELECTOR, "a[href='/Login/GetPass']")
     ERROR = (By.CSS_SELECTOR, ".alert, .error, .validation-summary-errors")
 
     def __init__(self, driver):
@@ -16,6 +19,11 @@ class LoginPage:
     def open(self, url):
         self.driver.get(url)
         return self
+
+    def set_remember_me(self, selected):
+        checkbox = self.driver.find_element(*self.REMEMBER)
+        if checkbox.is_selected() != selected:
+            self.driver.find_element(*self.REMEMBER_LABEL).click()
 
     def login(self, username, password):
         self.driver.find_element(*self.USERNAME).send_keys(username)

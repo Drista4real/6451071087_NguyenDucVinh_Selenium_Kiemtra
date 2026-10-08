@@ -2,7 +2,8 @@
 
 Selenium + pytest browser tests for the 19 login test cases in the supplied CSV.
 The locator choices follow the accompanying UTC login page reference: `name=username`,
-`name=userpwd`, `input.submit__login`, and `id=persistent`.
+`name=userpwd`, `form[action="/Login"] input.submit_login`, and
+`label.check[for="persistent"]` (the checkbox input itself is hidden by the page script).
 
 ## Setup
 
