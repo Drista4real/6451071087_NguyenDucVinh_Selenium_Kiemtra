@@ -3,6 +3,9 @@ import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from dotenv import load_dotenv
+
+load_dotenv()
 
 @pytest.fixture
 def driver():
