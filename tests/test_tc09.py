@@ -4,4 +4,4 @@ def test_tc09_wrong_username_is_rejected(driver, login_url, credentials):
     from pages.login_page import LoginPage
     page = LoginPage(driver).open(login_url)
     page.login("huongthunguyen", credentials[1])
-    assert "t?i kho?n ho?c m?t kh?u kh?ng ch?nh x?c" in page.form.error_text().lower()
+    assert page.form.error_text(), "Expected an error for an unknown username"

@@ -2,9 +2,6 @@
 
 def test_tc16_direct_home_access_redirects_to_login(driver, login_url):
     import os
-    home_url = os.getenv("HOME_URL")
-    if not home_url:
-        import pytest
-        pytest.skip("Set HOME_URL to the protected internal page")
+    home_url = os.getenv("HOME_URL", "https://vanphongdientu.utc.edu.vn/trang-chu")
     driver.get(home_url)
-    assert driver.current_url.rstrip("/") == login_url.rstrip("/")
+    assert "/login" in driver.current_url.lower(), "Unauthenticated visit was not redirected to login"

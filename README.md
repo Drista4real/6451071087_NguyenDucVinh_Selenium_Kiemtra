@@ -21,3 +21,10 @@ Cần cài Chrome. Selenium điều khiển trình duyệt; pytest chạy testca
 - `pages/components/login_form.py`: locator và thao tác trong form.
 - `pages/components/login_help.py`: các liên kết trợ giúp.
 - `tests/test_tc*.py`: 19 testcase.
+
+TC14 được bỏ qua mặc định vì gửi sai mật khẩu 5 lần. Chỉ chạy riêng khi dùng tài khoản kiểm thử được phép:
+
+```powershell
+$env:RUN_TC14 = "1"
+python -m pytest tests/test_tc14.py -v
+```

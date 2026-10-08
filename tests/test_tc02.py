@@ -11,4 +11,4 @@ def test_tc02_valid_login_with_enter(driver, login_url, credentials):
     old_url = driver.current_url
     field.send_keys(Keys.ENTER)
     page.wait_for_url_change(old_url)
-    assert driver.current_url != login_url
+    assert not driver.find_elements(*page.form.USERNAME), "Login form is still visible after Enter"

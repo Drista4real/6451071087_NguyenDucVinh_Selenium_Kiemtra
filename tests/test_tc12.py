@@ -6,4 +6,4 @@ def test_tc12_username_surrounding_spaces_are_trimmed(driver, login_url, credent
     old_url = driver.current_url
     page.login(" " + credentials[0] + " ", credentials[1])
     page.wait_for_url_change(old_url)
-    assert driver.current_url != login_url
+    assert not driver.find_elements(*page.form.USERNAME), "Login form is still visible after whitespace login"
