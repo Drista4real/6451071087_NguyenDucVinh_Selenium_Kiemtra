@@ -45,5 +45,3 @@ Ngày chạy: 08/10/2026 — **12 đạt, 8 chưa đạt**.
 | TC18 | Đạt | Trang vẫn hiển thị, không phát hiện lỗi Server 500. |
 | TC19 | Đạt | Phím Tab đi qua các phần tử và tới được nút đăng nhập. |
 | TC20 | Đạt | Ảnh CAPTCHA, ô mã bảo mật và ô email hiện trên trang khôi phục mật khẩu. |
-
-TC14 gửi sai password 5 lần và có thể làm khóa tài khoản. Chỉ chạy testcase này trên tài khoản kiểm thử được phép. Mật khẩu đã được ẩn khỏi báo cáo Excel.
