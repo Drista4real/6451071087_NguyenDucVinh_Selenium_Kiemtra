@@ -22,3 +22,11 @@ def login_url():
     if not url:
         pytest.skip("Set LOGIN_URL to the UTC login page before running browser tests")
     return url
+
+@pytest.fixture
+def credentials():
+    username = os.getenv("TEST_USERNAME")
+    password = os.getenv("TEST_PASSWORD")
+    if not username or not password:
+        pytest.skip("Set TEST_USERNAME and TEST_PASSWORD for authenticated scenarios")
+    return username, password
