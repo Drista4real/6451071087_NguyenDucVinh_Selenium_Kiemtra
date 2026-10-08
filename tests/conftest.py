@@ -18,10 +18,10 @@ def driver():
 
 @pytest.fixture
 def login_url():
-    url = os.getenv("LOGIN_URL")
-    if not url:
-        pytest.skip("Set LOGIN_URL to the UTC login page before running browser tests")
-    return url
+    return os.getenv(
+        "LOGIN_URL",
+        "https://vanphongdientu.utc.edu.vn/Login?r=https%3A%2F%2Fvanphongdientu.utc.edu.vn%2F",
+    )
 
 @pytest.fixture
 def credentials():

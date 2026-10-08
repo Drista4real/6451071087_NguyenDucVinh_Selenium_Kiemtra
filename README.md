@@ -10,16 +10,15 @@ The locator choices follow the accompanying UTC login page reference: `name=user
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-$env:LOGIN_URL = "https://your-utc-login-url/"
-$env:HOME_URL = "https://your-utc-login-url/trang-chu"
+$env:HOME_URL = "https://vanphongdientu.utc.edu.vn/trang-chu"
 $env:TEST_USERNAME = "your-test-account"
 $env:TEST_PASSWORD = "your-test-password"
 pytest
 ```
 
-Chrome and a compatible Selenium Manager managed driver are required. Browser tests
-skip when `LOGIN_URL` is unset. Tests involving successful login also require the
-provided environment credentials and, where relevant, `HOME_URL`.
+Chrome and a compatible Selenium Manager managed driver are required. `LOGIN_URL` defaults to the UTC login page. Override it only when testing another
+environment. Tests involving successful login require the provided environment
+credentials and, where relevant, `HOME_URL`.
 
 Some expected behaviors (session persistence, lockout, logout, and server-side
 validation) depend on the target environment and account policy. Keep those tests
